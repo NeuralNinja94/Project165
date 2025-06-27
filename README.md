@@ -81,8 +81,9 @@ fundgrube/
 👥 Team
 Dusan – Backend 
 Carmine – Datenbank
-Anina – API & Test
-Natalia – README / Dokumentation
+? – API & Test
+Natalia – README 
+Anina – Dokumentation
 
 📌 Hinweise
 Das Projekt ist Teil eines schulischen Lernprojekts und nicht für den produktiven Einsatz gedacht.
