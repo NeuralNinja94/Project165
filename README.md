@@ -102,9 +102,7 @@ DELETE	/funds/{id}	  Fundstück löschen
 fundgrube/
 
 ├── src/
-
 │   └── main/
-
 │       ├── java/ch/wiss/fundgrube/
 
 │       │   ├── controller/
