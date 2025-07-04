@@ -5,12 +5,17 @@
 Ist eine Webanwendung zur Verwaltung von verlorenen Gegenständen. Die Anwendung basiert auf einem modernen Java-Backend mit MongoDB-Datenbankanbindung.
 
 ✅ Funktionen
+
 🔍 Fundstücke anzeigen (`GET /funds`)
+
 ➕ Neues Fundstück erfassen (`POST /funds`)
+
 📝 Fundstück bearbeiten (`PUT /funds/{id}`)
+
 🗑️ Fundstück löschen (`DELETE /funds/{id}`)
 
 💾 Daten werden in einer MongoDB gespeichert
+
 
 🔗 REST API mit Spring Boot
 
