@@ -4,6 +4,7 @@
 📚 Fundgrube – Schulprojekt
 Ist eine Webanwendung zur Verwaltung von verlorenen Gegenständen. Die Anwendung basiert auf einem modernen Java-Backend mit MongoDB-Datenbankanbindung.
 
+
 ✅ Funktionen
 
 🔍 Fundstücke anzeigen (`GET /funds`)
@@ -14,14 +15,18 @@ Ist eine Webanwendung zur Verwaltung von verlorenen Gegenständen. Die Anwendung
 
 🗑️ Fundstück löschen (`DELETE /funds/{id}`)
 
+
 💾 Daten werden in einer MongoDB gespeichert
 
 
 🔗 REST API mit Spring Boot
 
+
 🛠️ Tech-Stack
 
+
 Komponente	      Beschreibung
+
 
 Java 17+      ->  Hauptprogrammiersprache
 
@@ -32,6 +37,7 @@ MongoDB	      ->	NoSQL Datenbank
 Maven	        ->	Build Tool
 
 Postman	      ->	Zum Testen der REST-API
+
 
 
 🚀 Projekt starten
@@ -50,12 +56,14 @@ IDE wie IntelliJ oder Eclipse
 
 ⚙️ Projekt Installation & Ausführung
 
-# Repository klonen
+
+Repository klonen
 git clone https://github.com/dein-user/fundgrube.git
 cd fundgrube
 
-# Spring Boot starten (z. B. über IDE oder CLI)
+Spring Boot starten (z. B. über IDE oder CLI)
 ./mvnw spring-boot:run
+
 
 
 🌐 API Endpunkte
@@ -73,13 +81,19 @@ PUT	    /funds/{id}	  Fundstück aktualisieren
 DELETE	/funds/{id}	  Fundstück löschen
 
 
+
 🧪 Beispiel JSON (für POST/PUT)
 
 {
+
   "title": "Java Grundlagen",
+  
   "description": "Ein gutes Java-Tutorial",
+  
   "url": "https://java-tutorial.de",
+  
   "category": "Tutorial"
+  
 }
 
 
@@ -91,23 +105,22 @@ fundgrube/
 
 │   └── main/
 
-│       ├── java/
+│       ├── java/ch/wiss/fundgrube/
 
-│       │   └── ch/wiss/fundgrube/
+│       │   ├── controller/
 
-│       │       ├── controller/
+│       │   ├── model/
 
-│       │       ├── model/
-
-│       │       └── repository/
+│       │   └── repository/
 
 │       └── resources/
 
 │           └── application.properties
 
-├── README.md
-
 ├── pom.xml
+
+└── README.md
+
 
 
 👥 Team
@@ -119,6 +132,7 @@ Carmine – Datenbank
 Natalia & Anina – API & Test
 
 Natalia & Anina – README 
+
 
 
 ⚠️ Hinweis: Dieses Projekt wurde im Rahmen eines schulischen Lernauftrags entwickelt und ist nicht für den produktiven Einsatz vorgesehen.
