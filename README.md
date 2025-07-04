@@ -2,16 +2,13 @@
 
 
 📚 Fundgrube – Schulprojekt
-Ein Schulprojekt im Rahmen der Erwachsenenbildung EFZ an der WISS. Die Applikation ist eine Fundgrube zum Sammeln, Speichern und Verwalten von verlorenen Gegegnstände.
+Ist eine Webanwendung zur Verwaltung von verlorenen Gegenständen. Die Anwendung basiert auf einem modernen Java-Backend mit MongoDB-Datenbankanbindung.
 
 ✅ Funktionen
-🔍 Artikel auflisten (GET)
-
-➕ Neuer Artikel hinzufügen (POST)
-
-📝 Vorhandene Artikel bearbeiten (PUT)
-
-🗑️ Artikel löschen (DELETE)
+🔍 Fundstücke anzeigen (`GET /funds`)
+➕ Neues Fundstück erfassen (`POST /funds`)
+📝 Fundstück bearbeiten (`PUT /funds/{id}`)
+🗑️ Fundstück löschen (`DELETE /funds/{id}`)
 
 💾 Daten werden in einer MongoDB gespeichert
 
@@ -19,24 +16,21 @@ Ein Schulprojekt im Rahmen der Erwachsenenbildung EFZ an der WISS. Die Applikati
 
 🛠️ Tech-Stack
 Komponente	Beschreibung
-Java	-> Hauptprogrammiersprache
+Java 17+ -> Hauptprogrammiersprache
 Spring Boot	->	Backend-Framework & Webservice
 MongoDB	->	NoSQL Datenbank
-Maven/Gradle	->	Build Tool
-REST	->	API-Architektur zur Kommunikation
-Postman	->	Zum Testen der Schnittstellen
+Maven	->	Build Tool
+Postman	->	Zum Testen der REST-API
 
 🚀 Projekt starten
+
 🔧 Voraussetzungen
 Java 17+
-
-Maven (oder Gradle)
-
+Maven
 MongoDB lokal installiert oder MongoDB Atlas Zugang
-
 IDE wie IntelliJ oder Eclipse
 
-⚙️ Projekt ausführen
+⚙️ Projekt Installation & Ausführung
 
 # Repository klonen
 git clone https://github.com/dein-user/fundgrube.git
@@ -47,12 +41,12 @@ cd fundgrube
 
 
 🌐 API Endpunkte
-Methode	Endpoint	Beschreibung
-GET	/funds	Liste aller Fundstücke
-GET	/funds/{id}	Ein Fundstück anzeigen
-POST	/funds	Neues Fundstück erstellen
-PUT	/funds/{id}	Fundstück aktualisieren
-DELETE	/funds/{id}	Fundstück löschen
+Methode	Endpoint	    Beschreibung
+GET	    /funds	      Liste aller Fundstücke
+GET	    /funds/{id}	  Ein Fundstück anzeigen
+POST	  /funds	      Neues Fundstück erstellen
+PUT	    /funds/{id}	  Fundstück aktualisieren
+DELETE	/funds/{id}	  Fundstück löschen
 
 🧪 Beispiel JSON (für POST/PUT)
 
@@ -64,7 +58,7 @@ DELETE	/funds/{id}	Fundstück löschen
 }
 
 
-📁 Projektstruktur (optional)
+📁 Projektstruktur
 
 fundgrube/
 ├── src/
@@ -82,9 +76,7 @@ fundgrube/
 👥 Team
 Dusan – Backend 
 Carmine – Datenbank
-? – API & Test
-Natalia – README 
-Anina – Dokumentation
+Natalia & Anina – API & Test
+Natalia & Anina – README 
 
-📌 Hinweise
-Das Projekt ist Teil eines schulischen Lernprojekts und nicht für den produktiven Einsatz gedacht.
+⚠️ Hinweis: Dieses Projekt wurde im Rahmen eines schulischen Lernauftrags entwickelt und ist nicht für den produktiven Einsatz vorgesehen.
