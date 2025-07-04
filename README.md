@@ -20,20 +20,33 @@ Ist eine Webanwendung zur Verwaltung von verlorenen Gegenständen. Die Anwendung
 🔗 REST API mit Spring Boot
 
 🛠️ Tech-Stack
-Komponente	Beschreibung
-Java 17+ -> Hauptprogrammiersprache
-Spring Boot	->	Backend-Framework & Webservice
-MongoDB	->	NoSQL Datenbank
-Maven	->	Build Tool
-Postman	->	Zum Testen der REST-API
+
+Komponente	      Beschreibung
+
+Java 17+      ->  Hauptprogrammiersprache
+
+Spring Boot	  ->	Backend-Framework & Webservice
+
+MongoDB	      ->	NoSQL Datenbank
+
+Maven	        ->	Build Tool
+
+Postman	      ->	Zum Testen der REST-API
+
 
 🚀 Projekt starten
 
+
 🔧 Voraussetzungen
+
 Java 17+
+
 Maven
+
 MongoDB lokal installiert oder MongoDB Atlas Zugang
+
 IDE wie IntelliJ oder Eclipse
+
 
 ⚙️ Projekt Installation & Ausführung
 
@@ -46,12 +59,19 @@ cd fundgrube
 
 
 🌐 API Endpunkte
+
 Methode	Endpoint	    Beschreibung
+
 GET	    /funds	      Liste aller Fundstücke
+
 GET	    /funds/{id}	  Ein Fundstück anzeigen
+
 POST	  /funds	      Neues Fundstück erstellen
+
 PUT	    /funds/{id}	  Fundstück aktualisieren
+
 DELETE	/funds/{id}	  Fundstück löschen
+
 
 🧪 Beispiel JSON (für POST/PUT)
 
@@ -66,22 +86,39 @@ DELETE	/funds/{id}	  Fundstück löschen
 📁 Projektstruktur
 
 fundgrube/
+
 ├── src/
+
 │   └── main/
+
 │       ├── java/
+
 │       │   └── ch/wiss/fundgrube/
+
 │       │       ├── controller/
+
 │       │       ├── model/
+
 │       │       └── repository/
+
 │       └── resources/
+
 │           └── application.properties
+
 ├── README.md
+
 ├── pom.xml
 
+
 👥 Team
+
 Dusan – Backend 
+
 Carmine – Datenbank
+
 Natalia & Anina – API & Test
+
 Natalia & Anina – README 
+
 
 ⚠️ Hinweis: Dieses Projekt wurde im Rahmen eines schulischen Lernauftrags entwickelt und ist nicht für den produktiven Einsatz vorgesehen.
