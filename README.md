@@ -15,7 +15,7 @@ Ist eine Webanwendung zur Verwaltung von verlorenen Gegenständen. Die Anwendung
 
 🗑️ Fundstück löschen (`DELETE /funds/{id}`)
 
-___
+---
 
 #### 💾 Daten werden in einer MongoDB gespeichert
 
@@ -23,6 +23,7 @@ ___
 
 ## 🛠️ Tech-Stack
 
+***
 
 Komponente	      Beschreibung
 
