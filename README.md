@@ -5,7 +5,7 @@
 Ist eine Webanwendung zur Verwaltung von verlorenen Gegenständen. Die Anwendung basiert auf einem modernen Java-Backend mit MongoDB-Datenbankanbindung.
 
 
-# ✅ Funktionen
+## ✅ Funktionen
 
 🔍 Fundstücke anzeigen (`GET /funds`)
 
@@ -16,17 +16,15 @@ Ist eine Webanwendung zur Verwaltung von verlorenen Gegenständen. Die Anwendung
 🗑️ Fundstück löschen (`DELETE /funds/{id}`)
 
 
-# 💾 Daten werden in einer MongoDB gespeichert
 
+### 💾 Daten werden in einer MongoDB gespeichert
 
-# 🔗 REST API mit Spring Boot
+### 🔗 REST API mit Spring Boot
 
-
-# 🛠️ Tech-Stack
+## 🛠️ Tech-Stack
 
 
 Komponente	      Beschreibung
-
 
 Java 17+      ->  Hauptprogrammiersprache
 
@@ -40,10 +38,9 @@ Postman	      ->	Zum Testen der REST-API
 
 
 
-# 🚀 Projekt starten
+## 🚀 Projekt starten
 
-
-# 🔧 Voraussetzungen
+### 🔧 Voraussetzungen
 
 Java 17+
 
@@ -54,7 +51,7 @@ MongoDB lokal installiert oder MongoDB Atlas Zugang
 IDE wie IntelliJ oder Eclipse
 
 
-# ⚙️ Projekt Installation & Ausführung
+## ⚙️ Projekt Installation & Ausführung
 
 
 Repository klonen
@@ -66,7 +63,7 @@ Spring Boot starten (z. B. über IDE oder CLI)
 
 
 
-# 🌐 API Endpunkte
+## 🌐 API Endpunkte
 
 Methode	Endpoint	    Beschreibung
 
@@ -82,7 +79,7 @@ DELETE	/funds/{id}	  Fundstück löschen
 
 
 
-# 🧪 Beispiel JSON (für POST/PUT)
+## 🧪 Beispiel JSON (für POST/PUT)
 
 {
 
@@ -97,12 +94,14 @@ DELETE	/funds/{id}	  Fundstück löschen
 }
 
 
-# 📁 Projektstruktur
+## 📁 Projektstruktur
 
 fundgrube/
 
 ├── src/
+
 │   └── main/
+
 │       ├── java/ch/wiss/fundgrube/
 
 │       │   ├── controller/
@@ -121,7 +120,7 @@ fundgrube/
 
 
 
-# 👥 Team
+## 👥 Team
 
 Dusan – Backend 
 
@@ -133,6 +132,6 @@ Natalia & Anina – README
 
 
 
-# ⚠️ Hinweis
+## ⚠️ Hinweis
 
 Dieses Projekt wurde im Rahmen eines schulischen Lernauftrags entwickelt und ist nicht für den produktiven Einsatz vorgesehen.
