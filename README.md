@@ -17,9 +17,9 @@ Ist eine Webanwendung zur Verwaltung von verlorenen Gegenständen. Die Anwendung
 
 
 
-### 💾 Daten werden in einer MongoDB gespeichert
+#### 💾 Daten werden in einer MongoDB gespeichert
 
-### 🔗 REST API mit Spring Boot
+#### 🔗 REST API mit Spring Boot
 
 ## 🛠️ Tech-Stack
 
