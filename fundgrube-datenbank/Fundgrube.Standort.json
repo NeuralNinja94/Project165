@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "686a5fc95d899f3ba281140e"
+  },
+  "standort": "Zimmer 201",
+  "Artikel_Id": {
+    "$oid": "685e92d0d246bed959bd22ed"
+  }
+},
+{
+  "_id": {
+    "$oid": "686a5fc95d899f3ba281140f"
+  },
+  "standort": "Zimmer 202",
+  "Artikel_Id": {
+    "$oid": "685e9701d246bed959bd22ee"
+  }
+},
+{
+  "_id": {
+    "$oid": "686a5fc95d899f3ba2811410"
+  },
+  "standort": "Zimmer 405",
+  "Artikel_Id": {
+    "$oid": "685e9710d246bed959bd22ef"
+  }
+},
+{
+  "_id": {
+    "$oid": "686a5fc95d899f3ba2811411"
+  },
+  "standort": "Zimmer 401",
+  "Artikel_Id": {
+    "$oid": "685e977cd246bed959bd22f0"
+  }
+},
+{
+  "_id": {
+    "$oid": "686a5fc95d899f3ba2811412"
+  },
+  "standort": "Zimmer 404",
+  "Artikel_Id": {
+    "$oid": "685e979ed246bed959bd22f1"
+  }
+},
+{
+  "_id": {
+    "$oid": "686a5fc95d899f3ba2811413"
+  },
+  "standort": "Zimmer 208\n",
+  "Artikel_Id": {
+    "$oid": "685e97b9d246bed959bd22f2"
+  }
+},
+{
+  "_id": {
+    "$oid": "686a5fc95d899f3ba2811414"
+  },
+  "standort": "Zimmer 210",
+  "Artikel_Id": {
+    "$oid": "685e97ccd246bed959bd22f3"
+  }
+},
+{
+  "_id": {
+    "$oid": "686a5fc95d899f3ba2811415"
+  },
+  "standort": "Zimmer 209",
+  "Artikel_Id": {
+    "$oid": "685e981dd246bed959bd22f5"
+  }
+},
+{
+  "_id": {
+    "$oid": "686a5fc95d899f3ba2811416"
+  },
+  "standort": "Zimmer 203",
+  "Artikel_Id": {
+    "$oid": "6867791b5eb6106def549d3a"
+  }
+},
+{
+  "_id": {
+    "$oid": "686a5fc95d899f3ba2811417"
+  },
+  "standort": "Zimmer 402",
+  "Artikel_Id": {
+    "$oid": "686779755eb6106def549d3b"
+  }
+}]
