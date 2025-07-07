@@ -5,9 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class FundgrubeApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(FundgrubeApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(FundgrubeApplication.class, args);
+    }
 }
