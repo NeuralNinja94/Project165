@@ -2,8 +2,8 @@ package com.fundgrube.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Email;
 
 @Document(collection = "Artikel")
 public class Artikel {
@@ -17,33 +17,46 @@ public class Artikel {
     @NotBlank(message = "Standort darf nicht leer sein")
     private String standort;
 
-    @NotBlank(message = "Schüler darf nicht leer sein")
-    private String schueler;
-
-    @Email(message = "Ungültige E-Mail-Adresse")
-    private String email;
+    @NotBlank(message = "Schueler-ID darf nicht leer sein")
+    private String schuelerId;
 
     public Artikel() {}
 
-    public Artikel(String bezeichnung, String standort, String schueler, String email) {
+    public Artikel(String bezeichnung, String standort, String schuelerId) {
         this.bezeichnung = bezeichnung;
         this.standort = standort;
-        this.schueler = schueler;
-        this.email = email;
+        this.schuelerId = schuelerId;
     }
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public String getId() {
+        return id;
+    }
 
-    public String getBezeichnung() { return bezeichnung; }
-    public void setBezeichnung(String bezeichnung) { this.bezeichnung = bezeichnung; }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    public String getStandort() { return standort; }
-    public void setStandort(String standort) { this.standort = standort; }
+    public String getBezeichnung() {
+        return bezeichnung;
+    }
 
-    public String getSchueler() { return schueler; }
-    public void setSchueler(String schueler) { this.schueler = schueler; }
+    public void setBezeichnung(String bezeichnung) {
+        this.bezeichnung = bezeichnung;
+    }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public String getStandort() {
+        return standort;
+    }
+
+    public void setStandort(String standort) {
+        this.standort = standort;
+    }
+
+    public String getSchuelerId() {
+        return schuelerId;
+    }
+
+    public void setSchuelerId(String schuelerId) {
+        this.schuelerId = schuelerId;
+    }
 }

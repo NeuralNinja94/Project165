@@ -3,50 +3,58 @@ package com.fundgrube.controller;
 import com.fundgrube.model.Artikel;
 import com.fundgrube.service.ArtikelService;
 
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/artikel")
 public class ArtikelController {
 
+    private final ArtikelService artikelService;
+
     @Autowired
-    private ArtikelService service;
+    public ArtikelController(ArtikelService artikelService) {
+        this.artikelService = artikelService;
+    }
 
+    // GET /artikel → Alle Artikel abrufen
     @GetMapping
-    public List<Artikel> getAll() {
-        return service.getAll();
+    public ResponseEntity<List<Artikel>> getAllArtikel() {
+        List<Artikel> artikelListe = artikelService.getAlleArtikel();
+        return ResponseEntity.ok(artikelListe);
     }
 
+    // GET /artikel/{id} → Einzelnen Artikel abrufen
     @GetMapping("/{id}")
-    public ResponseEntity<Artikel> getById(@PathVariable String id) {
-        return service.getById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<Artikel> getArtikelById(@PathVariable String id) {
+        Optional<Artikel> artikel = artikelService.getArtikelById(id);
+        return artikel.map(ResponseEntity::ok)
+                      .orElse(ResponseEntity.notFound().build());
     }
 
+    // POST /artikel → Neuen Artikel hinzufügen
     @PostMapping
-    public Artikel create(@Valid @RequestBody Artikel artikel) {
-        return service.create(artikel);
+    public ResponseEntity<Artikel> addArtikel(@RequestBody Artikel artikel) {
+        Artikel gespeichert = artikelService.speichereArtikel(artikel);
+        return ResponseEntity.ok(gespeichert);
     }
 
+    // PUT /artikel/{id} → Artikel aktualisieren
     @PutMapping("/{id}")
-    public ResponseEntity<Artikel> update(@PathVariable String id, @Valid @RequestBody Artikel updated) {
-        return service.update(id, updated)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<Artikel> updateArtikel(@PathVariable String id, @RequestBody Artikel artikel) {
+        Optional<Artikel> aktualisiert = artikelService.aktualisiereArtikel(id, artikel);
+        return aktualisiert.map(ResponseEntity::ok)
+                           .orElse(ResponseEntity.notFound().build());
     }
 
+    // DELETE /artikel/{id} → Artikel löschen
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id) {
-        if (service.delete(id)) {
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<Void> deleteArtikel(@PathVariable String id) {
+        boolean geloescht = artikelService.loescheArtikel(id);
+        return geloescht ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
 }

@@ -1,44 +1,49 @@
 package com.fundgrube.service;
 
-import com.fundgrube.model.Artikel;
-import com.fundgrube.repository.ArtikelRepository;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import com.fundgrube.model.Artikel;
+import com.fundgrube.repository.ArtikelRepository;
 
 @Service
 public class ArtikelService {
 
+    private final ArtikelRepository artikelRepository;
+
     @Autowired
-    private ArtikelRepository repository;
-
-    public List<Artikel> getAll() {
-        return repository.findAll();
+    public ArtikelService(ArtikelRepository artikelRepository) {
+        this.artikelRepository = artikelRepository;
     }
 
-    public Optional<Artikel> getById(String id) {
-        return repository.findById(id);
+    public List<Artikel> getAlleArtikel() {
+        return artikelRepository.findAll();
     }
 
-    public Artikel create(Artikel artikel) {
-        return repository.save(artikel);
+    public Optional<Artikel> getArtikelById(String id) {
+        return artikelRepository.findById(id);
     }
 
-    public Optional<Artikel> update(String id, Artikel updated) {
-        return repository.findById(id)
-                .map(existing -> {
-                    updated.setId(id);
-                    return repository.save(updated);
-                });
+    public Artikel speichereArtikel(Artikel artikel) {
+        return artikelRepository.save(artikel);
     }
 
-    public boolean delete(String id) {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
+    public Optional<Artikel> aktualisiereArtikel(String id, Artikel updatedArtikel) {
+        return artikelRepository.findById(id).map(artikel -> {
+            updatedArtikel.setId(id);
+            return artikelRepository.save(updatedArtikel);
+        });
+    }
+
+    public boolean loescheArtikel(String id) {
+        if (artikelRepository.existsById(id)) {
+            artikelRepository.deleteById(id);
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
 }
