@@ -1,0 +1,80 @@
+[{
+  "_id": {
+    "$oid": "686a5f9b5d899f3ba2811403"
+  },
+  "vorname": "Luca",
+  "nachname": "Meier",
+  "e-mail": "luca.meier25@schule.ch"
+},
+{
+  "_id": {
+    "$oid": "686a5f9b5d899f3ba2811404"
+  },
+  "vorname": "Sofia",
+  "nachname": "Schmid",
+  "E-mail": "sofia.schmid26@lernbox.ch"
+},
+{
+  "_id": {
+    "$oid": "686a5f9b5d899f3ba2811405"
+  },
+  "vorname": "Noah",
+  "nachname": "Keller",
+  "E-mail": "noah.keller34@schule.ch"
+},
+{
+  "_id": {
+    "$oid": "686a5f9b5d899f3ba2811406"
+  },
+  "vorname": "Mia",
+  "nachname": "Moser",
+  "E-mail": "mia.moser63@lernbox.ch"
+},
+{
+  "_id": {
+    "$oid": "686a5f9b5d899f3ba2811407"
+  },
+  "vorname": "Leon",
+  "nachname": "Baumann",
+  "E-mail": "leon.baumann21@student.ch"
+},
+{
+  "_id": {
+    "$oid": "686a5f9b5d899f3ba2811408"
+  },
+  "vorname": "Lina",
+  "nachname": "Huber",
+  "E-mail": "lina.huber30@student.ch"
+},
+{
+  "_id": {
+    "$oid": "686a5f9b5d899f3ba2811409"
+  },
+  "vorname": "Elias",
+  "nachname": "Zimmermann",
+  "E-mail": "elias.zimmermann36@student.ch"
+},
+{
+  "_id": {
+    "$oid": "686a5f9b5d899f3ba281140a"
+  },
+  "vorname": "Nina",
+  "nachname": "Steiner",
+  "E-mail": "nina.steiner5@schule.ch"
+},
+{
+  "_id": {
+    "$oid": "686a5f9b5d899f3ba281140b"
+  },
+  "vorname": "Julian",
+  "nachname": "Fischer",
+  "E-mail": "julian.fischer64@lernbox.ch"
+},
+{
+  "_id": {
+    "$oid": "686a5f9b5d899f3ba281140c"
+  },
+  "vorname": "Lea",
+  "nachname": "Brunner",
+  "E-mail": "lea.brunner57@student.ch"
+}]
