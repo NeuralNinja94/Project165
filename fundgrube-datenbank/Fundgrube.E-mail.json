@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "686a5f8e5d899f3ba28113f8"
+  },
+  "email": "luca.meier25@schule.ch",
+  "schuelerId": {
+    "$oid": "686b746ff28cec4a940ecb21"
+  }
+},
+{
+  "_id": {
+    "$oid": "686a5f8e5d899f3ba28113f9"
+  },
+  "email": "sofia.schmid26@lernbox.ch",
+  "schuelerId": {
+    "$oid": "686a5f9b5d899f3ba2811404"
+  }
+},
+{
+  "_id": {
+    "$oid": "686a5f8e5d899f3ba28113fa"
+  },
+  "email": "noah.keller34@schule.ch",
+  "schuelerId": {
+    "$oid": "686a5f9b5d899f3ba2811405"
+  }
+},
+{
+  "_id": {
+    "$oid": "686a5f8e5d899f3ba28113fb"
+  },
+  "email": "mia.moser63@lernbox.ch",
+  "schuelerId": {
+    "$oid": "686a5f9b5d899f3ba2811406"
+  }
+},
+{
+  "_id": {
+    "$oid": "686a5f8e5d899f3ba28113fc"
+  },
+  "email": "leon.baumann21@student.ch",
+  "schuelerId": {
+    "$oid": "686a5f9b5d899f3ba2811407"
+  }
+},
+{
+  "_id": {
+    "$oid": "686a5f8e5d899f3ba28113fd"
+  },
+  "email": "lina.huber30@student.ch",
+  "schuelerId": {
+    "$oid": "686a5f9b5d899f3ba2811408"
+  }
+},
+{
+  "_id": {
+    "$oid": "686a5f8e5d899f3ba28113fe"
+  },
+  "email": "elias.zimmermann36@student.ch",
+  "schuelerId": {
+    "$oid": "686a5f9b5d899f3ba2811409"
+  }
+},
+{
+  "_id": {
+    "$oid": "686a5f8e5d899f3ba28113ff"
+  },
+  "email": "nina.steiner5@schule.ch",
+  "schuelerId": {
+    "$oid": "686a5f9b5d899f3ba281140a"
+  }
+},
+{
+  "_id": {
+    "$oid": "686a5f8e5d899f3ba2811400"
+  },
+  "email": "julian.fischer64@lernbox.ch",
+  "schuelerId": {
+    "$oid": "686a5f9b5d899f3ba281140b"
+  }
+},
+{
+  "_id": {
+    "$oid": "686a5f8e5d899f3ba2811401"
+  },
+  "email": "lea.brunner57@student.ch",
+  "schuelerId": {
+    "$oid": "686a5f9b5d899f3ba281140c"
+  }
+}]
