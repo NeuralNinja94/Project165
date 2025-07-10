@@ -1,10 +1,15 @@
+# .gitignore sorgt dafür, dass bestimmte Dateien und Ordner NICHT ins Git-Repository gelangen
+# Das schützt sensible Daten, hält das Repo schlank und verhindert Konflikte durch IDE- oder Build-Dateien
+
+# Hilfedatei (wird nicht benötigt)
 HELP.md
+# Maven-Build-Ordner (generierte Dateien, nicht versionieren)
 target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
+### STS (Spring Tool Suite) ###
 .apt_generated
 .classpath
 .factorypath

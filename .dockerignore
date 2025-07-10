@@ -1,5 +1,13 @@
+# .dockerignore sorgt dafür, dass diese Dateien/Ordner NICHT ins Docker-Image kopiert werden
+# Das macht den Build schneller, das Image kleiner und schützt sensible Daten
+
+# Maven-Build-Ordner (wird im Container neu gebaut)
 target
+# IDE-Projektdateien (z.B. IntelliJ IDEA)
 .idea
+# Git-Repository-Ordner (braucht Docker nicht)
 .git
+# Gitignore-Datei (braucht Docker nicht)
 .gitignore
+# Projektbeschreibung (braucht Docker nicht im Image)
 README.md

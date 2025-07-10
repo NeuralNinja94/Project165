@@ -1,23 +1,25 @@
 version: '3.8'
 
 services:
+  # MongoDB-Datenbank-Service
   mongo:
     image: mongo:6
     container_name: mongo_db
     ports:
-      - "27017:27017"
+      - "27017:27017"  # Port für lokale Verbindung zu MongoDB
     volumes:
-      - mongo-data:/data/db
+      - mongo-data:/data/db  # Persistente Speicherung der Datenbankdaten
 
+  # Spring Boot Backend-Service
   backend:
-    build: .
+    build: .  # Baut das Backend-Image aus dem lokalen Dockerfile
     container_name: fundgrube-backend
     ports:
-      - "8080:8080"
+      - "8080:8080"  # Port für den Zugriff auf die Anwendung
     depends_on:
-      - mongo
+      - mongo  # Starte erst, wenn MongoDB läuft
     environment:
-      - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017/fundgrube
+      - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017/fundgrube  # Verbindungs-URI für das Backend
 
 volumes:
-  mongo-data:
+  mongo-data:  # Volume für persistente MongoDB-Daten
