@@ -41,6 +41,7 @@ public class ArtikelFindByBezeichnungIT {
     }
 
     @AfterAll
+    @SuppressWarnings("unused")
     void tearDown() {
         artikelRepository.deleteAll();
     }
