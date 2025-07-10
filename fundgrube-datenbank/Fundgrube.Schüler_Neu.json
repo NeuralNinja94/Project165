@@ -4,7 +4,7 @@
   },
   "vorname": "Luca",
   "nachname": "Meier",
-  "e-mail": "luca.meier25@schule.ch"
+  "email": "luca.meier25@schule.ch"
 },
 {
   "_id": {
@@ -12,7 +12,7 @@
   },
   "vorname": "Sofia",
   "nachname": "Schmid",
-  "E-mail": "sofia.schmid26@lernbox.ch"
+  "email": "sofia.schmid26@lernbox.ch"
 },
 {
   "_id": {
@@ -20,7 +20,7 @@
   },
   "vorname": "Noah",
   "nachname": "Keller",
-  "E-mail": "noah.keller34@schule.ch"
+  "email": "noah.keller34@schule.ch"
 },
 {
   "_id": {
@@ -28,7 +28,7 @@
   },
   "vorname": "Mia",
   "nachname": "Moser",
-  "E-mail": "mia.moser63@lernbox.ch"
+  "email": "mia.moser63@lernbox.ch"
 },
 {
   "_id": {
@@ -36,7 +36,7 @@
   },
   "vorname": "Leon",
   "nachname": "Baumann",
-  "E-mail": "leon.baumann21@student.ch"
+  "email": "leon.baumann21@student.ch"
 },
 {
   "_id": {
@@ -44,7 +44,7 @@
   },
   "vorname": "Lina",
   "nachname": "Huber",
-  "E-mail": "lina.huber30@student.ch"
+  "email": "lina.huber30@student.ch"
 },
 {
   "_id": {
@@ -52,7 +52,7 @@
   },
   "vorname": "Elias",
   "nachname": "Zimmermann",
-  "E-mail": "elias.zimmermann36@student.ch"
+  "email": "elias.zimmermann36@student.ch"
 },
 {
   "_id": {
@@ -60,7 +60,7 @@
   },
   "vorname": "Nina",
   "nachname": "Steiner",
-  "E-mail": "nina.steiner5@schule.ch"
+  "email": "nina.steiner5@schule.ch"
 },
 {
   "_id": {
@@ -68,7 +68,7 @@
   },
   "vorname": "Julian",
   "nachname": "Fischer",
-  "E-mail": "julian.fischer64@lernbox.ch"
+  "email": "julian.fischer64@lernbox.ch"
 },
 {
   "_id": {
@@ -76,5 +76,5 @@
   },
   "vorname": "Lea",
   "nachname": "Brunner",
-  "E-mail": "lea.brunner57@student.ch"
+  "email": "lea.brunner57@student.ch"
 }]
