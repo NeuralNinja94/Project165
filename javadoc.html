@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaDoc - Fundgrube Projekt</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; }
+        h2 { color: #34495e; border-bottom: 1px solid #bdc3c7; }
+        h3 { color: #27ae60; }
+        .package { background: #ecf0f1; padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .class { background: #fff; border: 1px solid #bdc3c7; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .method { background: #f8f9fa; border-left: 4px solid #3498db; padding: 10px; margin: 5px 0; }
+        .annotation { color: #e74c3c; font-weight: bold; }
+        .parameter { color: #8e44ad; }
+        .return { color: #27ae60; }
+        .throws { color: #e67e22; }
+        pre { background: #2c3e50; color: #ecf0f1; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        .toc { background: #f1f2f6; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .toc ul { list-style-type: none; }
+        .toc a { text-decoration: none; color: #3498db; }
+        .toc a:hover { color: #2980b9; }
+    </style>
+</head>
+<body>
+    <h1>🚀 JavaDoc Dokumentation - Fundgrube Projekt</h1>
+    
+    <div class="toc">
+        <h2>📋 Inhaltsverzeichnis</h2>
+        <ul>
+            <li><a href="#overview">Projektübersicht</a></li>
+            <li><a href="#com.fundgrube">Package: com.fundgrube</a></li>
+            <li><a href="#com.fundgrube.model">Package: com.fundgrube.model</a></li>
+            <li><a href="#com.fundgrube.repository">Package: com.fundgrube.repository</a></li>
+            <li><a href="#com.fundgrube.service">Package: com.fundgrube.service</a></li>
+            <li><a href="#com.fundgrube.controller">Package: com.fundgrube.controller</a></li>
+            <li><a href="#com.fundgrube.exception">Package: com.fundgrube.exception</a></li>
+        </ul>
+    </div>
+
+    <section id="overview">
+        <h2>📖 Projektübersicht</h2>
+        <p><strong>Projekt:</strong> Digitale Fundgrube für die WISSö</p>
+        <p><strong>Version:</strong> 0.0.1-SNAPSHOT</p>
+        <p><strong>Framework:</strong> Spring Boot 3.5.3</p>
+        <p><strong>Java Version:</strong> 17</p>
+        <p><strong>Build Tool:</strong> Maven</p>
+        <p><strong>Datenbank:</strong> MongoDB</p>
+        
+        <h3>🎯 Projektziel</h3>
+        <p>Entwicklung einer REST-API zur Verwaltung von Fundgegenständen in einer Bildungseinrichtung. 
+        Das System ermöglicht die Erfassung, Suche und Verwaltung von gefundenen Gegenständen sowie 
+        die Zuordnung zu Schülern bei der Abholung.</p>
+    </section>
+
+    <section id="com.fundgrube">
+        <div class="package">
+            <h2>📦 Package: com.fundgrube</h2>
+            <p>Hauptpackage der Anwendung mit der Spring Boot Hauptklasse.</p>
+        </div>
+
+        <div class="class">
+            <h3>🔧 FundgrubeApplication</h3>
+            <p><strong>Typ:</strong> Hauptklasse der Spring Boot Anwendung</p>
+            
+            <pre><code>@SpringBootApplication
+public class FundgrubeApplication {
+    
+    /**
+     * Hauptmethode zum Starten der Spring Boot Anwendung.
+     * 
+     * @param args Kommandozeilenargumente
+     */
+    public static void main(String[] args) {
+        SpringApplication.run(FundgrubeApplication.class, args);
+    }
+}</code></pre>
+
+            <h4>📝 Klassen-Dokumentation</h4>
+            <p><strong>Zweck:</strong> Entry Point der gesamten Anwendung</p>
+            <p><strong>Annotationen:</strong></p>
+            <ul>
+                <li><span class="annotation">@SpringBootApplication</span> - Kombiniert @Configuration, @EnableAutoConfiguration und @ComponentScan</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="com.fundgrube.model">
+        <div class="package">
+            <h2>📦 Package: com.fundgrube.model</h2>
+            <p>Enthält die Datenmodelle (Entitäten) der Anwendung.</p>
+        </div>
+
+        <div class="class">
+            <h3>📋 Artikel</h3>
+            <p><strong>Typ:</strong> MongoDB Document Entity</p>
+            
+            <pre><code>@Document(collection = "Artikel")
+public class Artikel {
+    
+    @Id
+    private String id;
+    
+    @NotBlank(message = "Bezeichnung darf nicht leer sein")
+    private String bezeichnung;
+    
+    @NotBlank(message = "Fundort darf nicht leer sein")
+    private String gefundenIn;
+    
+    private LocalDate datum;
+}</code></pre>
+
+            <h4>📝 Klassen-Dokumentation</h4>
+            <p><strong>Zweck:</strong> Repräsentiert einen Fundgegenstand in der Datenbank</p>
+            <p><strong>Collection:</strong> "Artikel" in MongoDB</p>
+            
+            <h4>🏷️ Annotationen</h4>
+            <ul>
+                <li><span class="annotation">@Document(collection = "Artikel")</span> - MongoDB Collection-Mapping</li>
+                <li><span class="annotation">@Id</span> - Eindeutige Dokument-ID</li>
+                <li><span class="annotation">@NotBlank</span> - Bean Validation für Pflichtfelder</li>
+                <li><span class="annotation">@JsonIgnore</span> - Felder werden bei JSON-Serialisierung ignoriert</li>
+            </ul>
+
+            <h4>🔧 Methoden</h4>
+            <div class="method">
+                <h5>Konstruktor</h5>
+                <pre><code>/**
+ * Konstruktor zum Erstellen eines Artikels.
+ * 
+ * @param bezeichnung Die Bezeichnung des Artikels
+ * @param gefundenIn Der Fundort des Artikels
+ * @param datum Das Funddatum
+ */
+public Artikel(String bezeichnung, String gefundenIn, LocalDate datum)</code></pre>
+            </div>
+
+            <div class="method">
+                <h5>Getter/Setter Methoden</h5>
+                <pre><code>/**
+ * Gibt die ID des Artikels zurück.
+ * 
+ * @return Die Artikel-ID
+ */
+public String getId()
+
+/**
+ * Setzt die ID des Artikels.
+ * 
+ * @param id Die neue Artikel-ID
+ */
+public void setId(String id)
+
+/**
+ * Gibt die Bezeichnung des Artikels zurück.
+ * 
+ * @return Die Bezeichnung
+ */
+public String getBezeichnung()
+
+/**
+ * Setzt die Bezeichnung des Artikels.
+ * 
+ * @param bezeichnung Die neue Bezeichnung
+ */
+public void setBezeichnung(String bezeichnung)
+
+/**
+ * Gibt den Fundort des Artikels zurück.
+ * 
+ * @return Der Fundort
+ */
+public String getGefundenIn()
+
+/**
+ * Setzt den Fundort des Artikels.
+ * 
+ * @param gefundenIn Der neue Fundort
+ */
+public void setGefundenIn(String gefundenIn)
+
+/**
+ * Gibt das Funddatum des Artikels zurück.
+ * 
+ * @return Das Funddatum
+ */
+public LocalDate getDatum()
+
+/**
+ * Setzt das Funddatum des Artikels.
+ * 
+ * @param datum Das neue Funddatum
+ */
+public void setDatum(LocalDate datum)</code></pre>
+            </div>
+
+            <div class="method">
+                <h5>Nicht implementierte Methoden</h5>
+                <pre><code>/**
+ * Noch nicht implementiert. Soll den Standort des Artikels liefern.
+ * Die Methode ist mit @JsonIgnore annotiert, damit sie bei der JSON-Serialisierung
+ * (z.B. bei API-Antworten) von Jackson ignoriert wird und keine Fehler verursacht.
+ * 
+ * @return wirft immer UnsupportedOperationException
+ * @throws UnsupportedOperationException wenn die Methode aufgerufen wird
+ */
+@JsonIgnore
+public Object getStandort()
+
+/**
+ * Noch nicht implementiert. Soll die Schüler-ID liefern.
+ * Die Methode ist mit @JsonIgnore annotiert, damit sie bei der JSON-Serialisierung
+ * (z.B. bei API-Antworten) von Jackson ignoriert wird und keine Fehler verursacht.
+ * 
+ * @return wirft immer UnsupportedOperationException
+ * @throws UnsupportedOperationException wenn die Methode aufgerufen wird
+ */
+@JsonIgnore
+public Object getSchuelerId()</code></pre>
+            </div>
+        </div>
+
+        <div class="class">
+            <h3>👤 Schueler</h3>
+            <p><strong>Typ:</strong> MongoDB Document Entity</p>
+            
+            <h4>📝 Klassen-Dokumentation</h4>
+            <p><strong>Zweck:</strong> Repräsentiert einen Schüler im System</p>
+            <p><strong>Collection:</strong> "Schueler" in MongoDB</p>
+        </div>
+
+        <div class="class">
+            <h3>📤 Abholung</h3>
+            <p><strong>Typ:</strong> MongoDB Document Entity</p>
+            
+            <h4>📝 Klassen-Dokumentation</h4>
+            <p><strong>Zweck:</strong> Repräsentiert eine Abholung eines Fundgegenstands</p>
+            <p><strong>Collection:</strong> "Abholung" in MongoDB</p>
+        </div>
+    </section>
+
+    <section id="com.fundgrube.repository">
+        <div class="package">
+            <h2>📦 Package: com.fundgrube.repository</h2>
+            <p>Enthält die Repository-Interfaces für den Datenbankzugriff.</p>
+        </div>
+
+        <div class="class">
+            <h3>🗃️ ArtikelRepository</h3>
+            <p><strong>Typ:</strong> Repository Interface</p>
+            
+            <pre><code>@Repository
+public interface ArtikelRepository extends MongoRepository&lt;Artikel, String&gt; {
+    
+    /**
+     * Findet Artikel anhand der Bezeichnung (case-insensitive Teilstring-Suche).
+     * 
+     * @param bezeichnung Suchbegriff für die Artikelbezeichnung
+     * @return Liste der gefundenen Artikel
+     */
+    List&lt;Artikel&gt; findByBezeichnungContainingIgnoreCase(String bezeichnung);
+    
+    /**
+     * Findet Artikel anhand des Fundorts (case-insensitive Teilstring-Suche).
+     * 
+     * @param gefundenIn Suchbegriff für den Fundort
+     * @return Liste der gefundenen Artikel
+     */
+    List&lt;Artikel&gt; findByGefundenInContainingIgnoreCase(String gefundenIn);
+}</code></pre>
+
+            <h4>📝 Interface-Dokumentation</h4>
+            <p><strong>Zweck:</strong> Datenbankoperationen für Artikel-Entitäten</p>
+            <p><strong>Erbt von:</strong> MongoRepository&lt;Artikel, String&gt;</p>
+            
+            <h4>🔧 Geerbte Methoden</h4>
+            <ul>
+                <li><code>save(Artikel artikel)</code> - Speichert oder aktualisiert einen Artikel</li>
+                <li><code>findAll()</code> - Gibt alle Artikel zurück</li>
+                <li><code>findById(String id)</code> - Findet Artikel anhand der ID</li>
+                <li><code>deleteById(String id)</code> - Löscht Artikel anhand der ID</li>
+                <li><code>count()</code> - Zählt alle Artikel</li>
+            </ul>
+        </div>
+
+        <div class="class">
+            <h3>🗃️ SchuelerRepository</h3>
+            <p><strong>Typ:</strong> Repository Interface</p>
+            
+            <h4>📝 Interface-Dokumentation</h4>
+            <p><strong>Zweck:</strong> Datenbankoperationen für Schüler-Entitäten</p>
+            <p><strong>Erbt von:</strong> MongoRepository&lt;Schueler, String&gt;</p>
+        </div>
+
+        <div class="class">
+            <h3>🗃️ AbholungRepository</h3>
+            <p><strong>Typ:</strong> Repository Interface</p>
+            
+            <h4>📝 Interface-Dokumentation</h4>
+            <p><strong>Zweck:</strong> Datenbankoperationen für Abholung-Entitäten</p>
+            <p><strong>Erbt von:</strong> MongoRepository&lt;Abholung, String&gt;</p>
+        </div>
+    </section>
+
+    <section id="com.fundgrube.service">
+        <div class="package">
+            <h2>📦 Package: com.fundgrube.service</h2>
+            <p>Enthält die Service-Klassen mit der Geschäftslogik.</p>
+        </div>
+
+        <div class="class">
+            <h3>⚙️ ArtikelService</h3>
+            <p><strong>Typ:</strong> Service Klasse</p>
+            
+            <pre><code>@Service
+public class ArtikelService {
+    
+    @Autowired
+    private ArtikelRepository artikelRepository;
+    
+    /**
+     * Gibt alle Artikel aus der Datenbank zurück.
+     * 
+     * @return Liste aller Artikel
+     */
+    public List&lt;Artikel&gt; getAlleArtikel() {
+        return artikelRepository.findAll();
+    }
+    
+    /**
+     * Speichert einen neuen Artikel oder aktualisiert einen bestehenden.
+     * 
+     * @param artikel Der zu speichernde Artikel
+     * @return Der gespeicherte Artikel mit generierter ID
+     */
+    public Artikel speichereArtikel(Artikel artikel) {
+        return artikelRepository.save(artikel);
+    }
+    
+    /**
+     * Findet einen Artikel anhand seiner ID.
+     * 
+     * @param id Die ID des gesuchten Artikels
+     * @return Optional mit dem gefundenen Artikel oder leer
+     */
+    public Optional&lt;Artikel&gt; findeArtikelById(String id) {
+        return artikelRepository.findById(id);
+    }
+    
+    /**
+     * Löscht einen Artikel anhand seiner ID.
+     * 
+     * @param id Die ID des zu löschenden Artikels
+     */
+    public void loescheArtikel(String id) {
+        artikelRepository.deleteById(id);
+    }
+    
+    /**
+     * Sucht Artikel anhand der Bezeichnung.
+     * 
+     * @param bezeichnung Suchbegriff für die Bezeichnung
+     * @return Liste der gefundenen Artikel
+     */
+    public List&lt;Artikel&gt; sucheArtikelNachBezeichnung(String bezeichnung) {
+        return artikelRepository.findByBezeichnungContainingIgnoreCase(bezeichnung);
+    }
+    
+    /**
+     * Sucht Artikel anhand des Fundorts.
+     * 
+     * @param fundort Suchbegriff für den Fundort
+     * @return Liste der gefundenen Artikel
+     */
+    public List&lt;Artikel&gt; sucheArtikelNachFundort(String fundort) {
+        return artikelRepository.findByGefundenInContainingIgnoreCase(fundort);
+    }
+}</code></pre>
+
+            <h4>📝 Klassen-Dokumentation</h4>
+            <p><strong>Zweck:</strong> Geschäftslogik für Artikel-Operationen</p>
+            <p><strong>Dependency Injection:</strong> ArtikelRepository</p>
+            
+            <h4>🏷️ Annotationen</h4>
+            <ul>
+                <li><span class="annotation">@Service</span> - Markiert die Klasse als Service-Bean</li>
+                <li><span class="annotation">@Autowired</span> - Automatische Dependency Injection</li>
+            </ul>
+        </div>
+
+        <div class="class">
+            <h3>⚙️ SchuelerService</h3>
+            <p><strong>Typ:</strong> Service Klasse</p>
+            
+            <h4>📝 Klassen-Dokumentation</h4>
+            <p><strong>Zweck:</strong> Geschäftslogik für Schüler-Operationen</p>
+        </div>
+
+        <div class="class">
+            <h3>⚙️ AbholungService</h3>
+            <p><strong>Typ:</strong> Service Klasse</p>
+            
+            <h4>📝 Klassen-Dokumentation</h4>
+            <p><strong>Zweck:</strong> Geschäftslogik für Abholung-Operationen</p>
+        </div>
+    </section>
+
+    <section id="com.fundgrube.controller">
+        <div class="package">
+            <h2>📦 Package: com.fundgrube.controller</h2>
+            <p>Enthält die REST-Controller für die API-Endpoints.</p>
+        </div>
+
+        <div class="class">
+            <h3>🌐 ArtikelController</h3>
+            <p><strong>Typ:</strong> REST Controller</p>
+            
+            <pre><code>@RestController
+@RequestMapping("/artikel")
+public class ArtikelController {
+    
+    @Autowired
+    private ArtikelService artikelService;
+    
+    /**
+     * GET /artikel - Gibt alle Artikel zurück.
+     * 
+     * @return Liste aller Artikel als JSON
+     */
+    @GetMapping
+    public List&lt;Artikel&gt; getAlleArtikel() {
+        return artikelService.getAlleArtikel();
+    }
+    
+    /**
+     * POST /artikel - Erstellt einen neuen Artikel.
+     * 
+     * @param artikel Der zu erstellende Artikel (aus Request Body)
+     * @return Der erstellte Artikel mit generierter ID
+     */
+    @PostMapping
+    public Artikel erstelleArtikel(@Valid @RequestBody Artikel artikel) {
+        return artikelService.speichereArtikel(artikel);
+    }
+    
+    /**
+     * GET /artikel/{id} - Gibt einen spezifischen Artikel zurück.
+     * 
+     * @param id Die ID des gesuchten Artikels
+     * @return Der gefundene Artikel
+     * @throws ResponseStatusException 404 wenn Artikel nicht gefunden
+     */
+    @GetMapping("/{id}")
+    public Artikel getArtikelById(@PathVariable String id) {
+        return artikelService.findeArtikelById(id)
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+    
+    /**
+     * PUT /artikel/{id} - Aktualisiert einen bestehenden Artikel.
+     * 
+     * @param id Die ID des zu aktualisierenden Artikels
+     * @param artikel Die neuen Artikeldaten
+     * @return Der aktualisierte Artikel
+     */
+    @PutMapping("/{id}")
+    public Artikel aktualisiereArtikel(@PathVariable String id, 
+                                      @Valid @RequestBody Artikel artikel) {
+        artikel.setId(id);
+        return artikelService.speichereArtikel(artikel);
+    }
+    
+    /**
+     * DELETE /artikel/{id} - Löscht einen Artikel.
+     * 
+     * @param id Die ID des zu löschenden Artikels
+     */
+    @DeleteMapping("/{id}")
+    public void loescheArtikel(@PathVariable String id) {
+        artikelService.loescheArtikel(id);
+    }
+    
+    /**
+     * GET /artikel/bezeichnung/{name} - Sucht Artikel nach Bezeichnung.
+     * 
+     * @param name Suchbegriff für die Bezeichnung
+     * @return Liste der gefundenen Artikel
+     */
+    @GetMapping("/bezeichnung/{name}")
+    public List&lt;Artikel&gt; sucheNachBezeichnung(@PathVariable String name) {
+        return artikelService.sucheArtikelNachBezeichnung(name);
+    }
+    
+    /**
+     * GET /artikel/fundort/{ort} - Sucht Artikel nach Fundort.
+     * 
+     * @param ort Suchbegriff für den Fundort
+     * @return Liste der gefundenen Artikel
+     */
+    @GetMapping("/fundort/{ort}")
+    public List&lt;Artikel&gt; sucheNachFundort(@PathVariable String ort) {
+        return artikelService.sucheArtikelNachFundort(ort);
+    }
+}</code></pre>
+
+            <h4>📝 Klassen-Dokumentation</h4>
+            <p><strong>Zweck:</strong> REST-API Endpoints für Artikel-Operationen</p>
+            <p><strong>Basis-URL:</strong> /artikel</p>
+            
+            <h4>🏷️ Annotationen</h4>
+            <ul>
+                <li><span class="annotation">@RestController</span> - Kombiniert @Controller und @ResponseBody</li>
+                <li><span class="annotation">@RequestMapping("/artikel")</span> - Basis-URL für alle Methoden</li>
+                <li><span class="annotation">@GetMapping, @PostMapping, @PutMapping, @DeleteMapping</span> - HTTP-Methoden-Mapping</li>
+                <li><span class="annotation">@Valid</span> - Aktiviert Bean Validation</li>
+                <li><span class="annotation">@RequestBody</span> - JSON-zu-Java-Objekt Konvertierung</li>
+                <li><span class="annotation">@PathVariable</span> - URL-Parameter Extraktion</li>
+            </ul>
+
+            <h4>📊 API-Endpoints</h4>
+            <table border="1" style="border-collapse: collapse; width: 100%;">
+                <tr style="background: #3498db; color: white;">
+                    <th>HTTP-Methode</th>
+                    <th>URL</th>
+                    <th>Beschreibung</th>
+                    <th>Request Body</th>
+                    <th>Response</th>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/artikel</td>
+                    <td>Alle Artikel abrufen</td>
+                    <td>-</td>
+                    <td>Liste von Artikeln</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>/artikel</td>
+                    <td>Neuen Artikel erstellen</td>
+                    <td>Artikel JSON</td>
+                    <td>Erstellter Artikel</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/artikel/{id}</td>
+                    <td>Artikel nach ID</td>
+                    <td>-</td>
+                    <td>Einzelner Artikel</td>
+                </tr>
+                <tr>
+                    <td>PUT</td>
+                    <td>/artikel/{id}</td>
+                    <td>Artikel aktualisieren</td>
+                    <td>Artikel JSON</td>
+                    <td>Aktualisierter Artikel</td>
+                </tr>
+                <tr>
+                    <td>DELETE</td>
+                    <td>/artikel/{id}</td>
+                    <td>Artikel löschen</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/artikel/bezeichnung/{name}</td>
+                    <td>Suche nach Bezeichnung</td>
+                    <td>-</td>
+                    <td>Liste von Artikeln</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/artikel/fundort/{ort}</td>
+                    <td>Suche nach Fundort</td>
+                    <td>-</td>
+                    <td>Liste von Artikeln</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="class">
+            <h3>🌐 SchuelerController</h3>
+            <p><strong>Typ:</strong> REST Controller</p>
+            
+            <h4>📝 Klassen-Dokumentation</h4>
+            <p><strong>Zweck:</strong> REST-API Endpoints für Schüler-Operationen</p>
+            <p><strong>Basis-URL:</strong> /schueler</p>
+        </div>
+
+        <div class="class">
+            <h3>🌐 AbholungController</h3>
+            <p><strong>Typ:</strong> REST Controller</p>
+            
+            <h4>📝 Klassen-Dokumentation</h4>
+            <p><strong>Zweck:</strong> REST-API Endpoints für Abholung-Operationen</p>
+            <p><strong>Basis-URL:</strong> /abholung</p>
+        </div>
+    </section>
+
+    <section id="com.fundgrube.exception">
+        <div class="package">
+            <h2>📦 Package: com.fundgrube.exception</h2>
+            <p>Enthält die globale Fehlerbehandlung der Anwendung.</p>
+        </div>
+
+        <div class="class">
+            <h3>⚠️ GlobalExceptionHandler</h3>
+            <p><strong>Typ:</strong> Exception Handler</p>
+            
+            <pre><code>@ControllerAdvice
+public class GlobalExceptionHandler {
+    
+    /**
+     * Behandelt Validation-Fehler (Bean Validation).
+     * 
+     * @param ex Die MethodArgumentNotValidException
+     * @return ResponseEntity mit Fehlermeldungen
+     */
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity&lt;Map&lt;String, String&gt;&gt; handleValidationExceptions(
+            MethodArgumentNotValidException ex) {
+        Map&lt;String, String&gt; errors = new HashMap&lt;&gt;();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return new ResponseEntity&lt;&gt;(errors, HttpStatus.BAD_REQUEST);
+    }
+    
+    /**
+     * Behandelt allgemeine Exception-Fälle.
+     * 
+     * @param ex Die Exception
+     * @return ResponseEntity mit allgemeiner Fehlermeldung
+     */
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity&lt;String&gt; handleGeneralException(Exception ex) {
+        return new ResponseEntity&lt;&gt;("Ein unerwarteter Fehler ist aufgetreten: " + 
+                                   ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+}</code></pre>
+
+            <h4>📝 Klassen-Dokumentation</h4>
+            <p><strong>Zweck:</strong> Zentrale Behandlung aller Exceptions in der Anwendung</p>
+            
+            <h4>🏷️ Annotationen</h4>
+            <ul>
+                <li><span class="annotation">@ControllerAdvice</span> - Globaler Exception Handler</li>
+                <li><span class="annotation">@ExceptionHandler</span> - Behandelt spezifische Exception-Typen</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>📚 Verwendete Technologien & Frameworks</h2>
+        
+        <h3>🏗️ Core Frameworks</h3>
+        <ul>
+            <li><strong>Spring Boot 3.5.3</strong> - Application Framework</li>
+            <li><strong>Spring Web</strong> - REST-API Development</li>
+            <li><strong>Spring Data MongoDB</strong> - Database Access Layer</li>
+        </ul>
+        
+        <h3>✅ Validation & Testing</h3>
+        <ul>
+            <li><strong>Bean Validation (Hibernate Validator)</strong> - Input Validation</li>
+            <li><strong>Spring Boot Test</strong> - Testing Framework</li>
+            <li><strong>Mockito</strong> - Mocking Framework</li>
+        </ul>
+        
+        <h3>🗄️ Database</h3>
+        <ul>
+            <li><strong>MongoDB</strong> - NoSQL Document Database</li>
+        </ul>
+        
+        <h3>🐳 Containerization</h3>
+        <ul>
+            <li><strong>Docker</strong> - Application Containerization</li>
+            <li><strong>Docker Compose</strong> - Multi-Container Orchestration</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>🔄 Architektur-Pattern</h2>
+        
+        <h3>🏛️ Layered Architecture</h3>
+        <p>Das Projekt folgt einer klassischen Schichtenarchitektur:</p>
+        <ol>
+            <li><strong>Presentation Layer (Controller)</strong> - REST-Endpoints</li>
+            <li><strong>Business Layer (Service)</strong> - Geschäftslogik</li>
+            <li><strong>Persistence Layer (Repository)</strong> - Datenbankzugriff</li>
+            <li><strong>Domain Layer (Model)</strong> - Domänenmodelle</li>
+        </ol>
+        
+        <h3>🔗 Dependency Injection</h3>
+        <p>Spring's IoC Container verwaltet alle Bean-Dependencies automatisch.</p>
+        
+        <h3>📊 Repository Pattern</h3>
+        <p>Abstraktion der Datenbankoperationen über Repository-Interfaces.</p>
+    </section>
+
+    <footer style="margin-top: 50px; padding: 20px; background: #34495e; color: white; text-align: center;">
+        <p>📖 <strong>JavaDoc Dokumentation</strong> - Fundgrube Projekt</p>
+        <p>Generiert am: <strong>10. Juli 2025</strong></p>
+        <p>Version: <strong>0.0.1-SNAPSHOT</strong></p>
+        <p>Framework: <strong>Spring Boot 3.5.3</strong> | Java: <strong>17</strong></p>
+    </footer>
+</body>
+</html>
