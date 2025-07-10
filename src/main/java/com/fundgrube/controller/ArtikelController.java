@@ -1,60 +1,67 @@
 package com.fundgrube.controller;
 
-import com.fundgrube.model.Artikel;
-import com.fundgrube.service.ArtikelService;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Optional;
+import com.fundgrube.model.Artikel;
+import com.fundgrube.service.ArtikelService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/artikel")
 public class ArtikelController {
 
-    private final ArtikelService artikelService;
+    public ArtikelController(ArtikelService mockService) {
+    }
 
     @Autowired
-    public ArtikelController(ArtikelService artikelService) {
-        this.artikelService = artikelService;
-    }
+    private ArtikelService service;
 
-    // GET /artikel → Alle Artikel abrufen
     @GetMapping
-    public ResponseEntity<List<Artikel>> getAllArtikel() {
-        List<Artikel> artikelListe = artikelService.getAlleArtikel();
-        return ResponseEntity.ok(artikelListe);
+    public List<Artikel> getAlleArtikel() {
+        return service.getAlleArtikel();
     }
 
-    // GET /artikel/{id} → Einzelnen Artikel abrufen
     @GetMapping("/{id}")
     public ResponseEntity<Artikel> getArtikelById(@PathVariable String id) {
-        Optional<Artikel> artikel = artikelService.getArtikelById(id);
-        return artikel.map(ResponseEntity::ok)
-                      .orElse(ResponseEntity.notFound().build());
+        return service.getArtikelById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
-    // POST /artikel → Neuen Artikel hinzufügen
     @PostMapping
-    public ResponseEntity<Artikel> addArtikel(@RequestBody Artikel artikel) {
-        Artikel gespeichert = artikelService.speichereArtikel(artikel);
-        return ResponseEntity.ok(gespeichert);
+    public Artikel createArtikel(@Valid @RequestBody Artikel artikel) {
+        return service.createArtikel(artikel);
     }
 
-    // PUT /artikel/{id} → Artikel aktualisieren
     @PutMapping("/{id}")
-    public ResponseEntity<Artikel> updateArtikel(@PathVariable String id, @RequestBody Artikel artikel) {
-        Optional<Artikel> aktualisiert = artikelService.aktualisiereArtikel(id, artikel);
-        return aktualisiert.map(ResponseEntity::ok)
-                           .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<Artikel> updateArtikel(@PathVariable String id, @Valid @RequestBody Artikel updatedArtikel) {
+        return service.updateArtikel(id, updatedArtikel)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
-    // DELETE /artikel/{id} → Artikel löschen
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteArtikel(@PathVariable String id) {
-        boolean geloescht = artikelService.loescheArtikel(id);
-        return geloescht ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+        return service.deleteArtikel(id) ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+    }
+
+    public List<Artikel> getByDatum(String string) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public List<Artikel> getByStandort(String zimmer_202) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

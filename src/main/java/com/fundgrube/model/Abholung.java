@@ -14,52 +14,32 @@ public class Abholung {
     @Id
     private String id;
 
-    @NotBlank(message = "Artikel-ID darf nicht leer sein")
-    private String artikelId;
+    @NotBlank(message = "Bezeichnung darf nicht leer sein")
+    private String bezeichnung;
 
     @NotBlank(message = "Schueler-ID darf nicht leer sein")
     private String schuelerId;
 
     @NotNull(message = "Abholdatum darf nicht null sein")
-    private LocalDateTime abholdatum;
+    private LocalDateTime abgeholtAt;
 
     public Abholung() {}
 
-    public Abholung(String artikelId, String schuelerId, LocalDateTime abholdatum) {
-        this.artikelId = artikelId;
+    public Abholung(String bezeichnung, String schuelerId, LocalDateTime abgeholtAt) {
+        this.bezeichnung = bezeichnung;
         this.schuelerId = schuelerId;
-        this.abholdatum = abholdatum;
+        this.abgeholtAt = abgeholtAt;
     }
 
-    public String getId() {
-        return id;
-    }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    public String getBezeichnung() { return bezeichnung; }
+    public void setBezeichnung(String bezeichnung) { this.bezeichnung = bezeichnung; }
 
-    public String getArtikelId() {
-        return artikelId;
-    }
+    public String getSchuelerId() { return schuelerId; }
+    public void setSchuelerId(String schuelerId) { this.schuelerId = schuelerId; }
 
-    public void setArtikelId(String artikelId) {
-        this.artikelId = artikelId;
-    }
-
-    public String getSchuelerId() {
-        return schuelerId;
-    }
-
-    public void setSchuelerId(String schuelerId) {
-        this.schuelerId = schuelerId;
-    }
-
-    public LocalDateTime getAbholdatum() {
-        return abholdatum;
-    }
-
-    public void setAbholdatum(LocalDateTime abholdatum) {
-        this.abholdatum = abholdatum;
-    }
+    public LocalDateTime getAbgeholtAt() { return abgeholtAt; }
+    public void setAbgeholtAt(LocalDateTime abgeholtAt) { this.abgeholtAt = abgeholtAt; }
 }

@@ -1,5 +1,6 @@
-package com.fundgrube.Unit_Test;
+package com.fundgrube.unitTest;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,36 +19,41 @@ public class ArtikelControllerTest {
 
     @Test
     void testGetArtikelById_found() {
-        // Beispielartikel
-        Artikel artikel = new Artikel("Turnbeutel", "Sporthalle", "232");
+        // Beispielartikel vorbereiten
+        Artikel artikel = new Artikel("Turnbeutel", "Sporthalle", LocalDate.of(2024, 6, 30));
         artikel.setId("123");
 
         // Service mocken
         ArtikelService mockService = mock(ArtikelService.class);
-        when(mockService.getArtikelById("123")).thenReturn(Optional.of(artikel));
+        when(mockService.findById("123")).thenReturn(Optional.of(artikel));
 
-        // Controller mit Mock
+        // Controller mit dem Mock-Service erzeugen
         ArtikelController controller = new ArtikelController(mockService);
 
         // Anfrage simulieren
         ResponseEntity<Artikel> response = controller.getArtikelById("123");
 
-        // Überprüfen
-        assertEquals(200, response.getStatusCode().value());
+        // Überprüfung
+        assertEquals(200, response.getStatusCodeValue());
         assertNotNull(response.getBody());
+        assertEquals("Turnbeutel", response.getBody().getBezeichnung());
         assertEquals("Sporthalle", response.getBody().getStandort());
+        assertEquals("232", response.getBody().getSchuelerId());
     }
 
     @Test
     void testGetArtikelById_notFound() {
+        // Service mockt Rückgabe von leerem Optional
         ArtikelService mockService = mock(ArtikelService.class);
-        when(mockService.getArtikelById("999")).thenReturn(Optional.empty());
+        when(mockService.findById("999")).thenReturn(Optional.empty());
 
         ArtikelController controller = new ArtikelController(mockService);
 
+        // Anfrage simulieren
         ResponseEntity<Artikel> response = controller.getArtikelById("999");
 
-        assertEquals(404, response.getStatusCode().value());
+        // Überprüfung
+        assertEquals(404, response.getStatusCodeValue());
         assertNull(response.getBody());
     }
 }

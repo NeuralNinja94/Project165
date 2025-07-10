@@ -1,5 +1,6 @@
 package com.fundgrube.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,38 +13,53 @@ import com.fundgrube.repository.ArtikelRepository;
 @Service
 public class ArtikelService {
 
-    private final ArtikelRepository artikelRepository;
-
     @Autowired
-    public ArtikelService(ArtikelRepository artikelRepository) {
-        this.artikelRepository = artikelRepository;
-    }
+    private ArtikelRepository repository;
 
     public List<Artikel> getAlleArtikel() {
-        return artikelRepository.findAll();
+        return repository.findAll();
     }
 
     public Optional<Artikel> getArtikelById(String id) {
-        return artikelRepository.findById(id);
+        return repository.findById(id);
     }
 
-    public Artikel speichereArtikel(Artikel artikel) {
-        return artikelRepository.save(artikel);
+    public Artikel createArtikel(Artikel artikel) {
+        return repository.save(artikel);
     }
 
-    public Optional<Artikel> aktualisiereArtikel(String id, Artikel updatedArtikel) {
-        return artikelRepository.findById(id).map(artikel -> {
+    public Optional<Artikel> updateArtikel(String id, Artikel updatedArtikel) {
+        return repository.findById(id).map(existing -> {
             updatedArtikel.setId(id);
-            return artikelRepository.save(updatedArtikel);
+            return repository.save(updatedArtikel);
         });
     }
 
-    public boolean loescheArtikel(String id) {
-        if (artikelRepository.existsById(id)) {
-            artikelRepository.deleteById(id);
+    public boolean deleteArtikel(String id) {
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
             return true;
-        } else {
-            return false;
         }
+        return false;
+    }
+
+    public Object findById(String string) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    }
+
+    public Object findById(LocalDate of) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    }
+
+    public Object findByDatum(LocalDate of) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findByDatum'");
+    }
+
+    public Object findByStandort(String string) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findByStandort'");
     }
 }
