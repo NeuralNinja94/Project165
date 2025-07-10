@@ -79,21 +79,6 @@ DELETE	/funds/{id}	  Fundstück löschen
 
 
 
-## 🧪 Beispiel JSON (für POST/PUT)
-
-{
-
-  "title": "Java Grundlagen",
-  
-  "description": "Ein gutes Java-Tutorial",
-  
-  "url": "https://java-tutorial.de",
-  
-  "category": "Tutorial"
-  
-}
-
-
 ## 📁 Projektstruktur
  
 fundgrube-datenbank
@@ -105,19 +90,19 @@ fundgrube-datenbank
 │       ├── java/ch/wiss/fundgrube/
  
 │           ├── controller
- 
+
                 └── ArtikelController.java
  
 │       │   ├── exception
- 
+
                 └── GlobalExceptionHandler.java
  
 │       │   ├── model
- 
-                └── Abholung.java
- 
-                └── Artikel.java
- 
+
+                └── Abholung.java 
+                
+                └── Artikel.java 
+                
                 └── Schueler.java
  
 │       │   ├── repository
