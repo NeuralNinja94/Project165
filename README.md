@@ -95,27 +95,101 @@ DELETE	/funds/{id}	  Fundstück löschen
 
 
 ## 📁 Projektstruktur
-
-fundgrube/
-
-├── src/
-
-│   └── main/
-
+ 
+fundgrube-datenbank
+ 
+├── src
+ 
+│   └── main
+ 
 │       ├── java/ch/wiss/fundgrube/
-
-│       │   ├── controller/
-
-│       │   ├── model/
-
-│       │   └── repository/
-
-│       └── resources/
-
+ 
+│           ├── controller
+ 
+                └── ArtikelController.java
+ 
+│       │   ├── exception
+ 
+                └── GlobalExceptionHandler.java
+ 
+│       │   ├── model
+ 
+                └── Abholung.java
+ 
+                └── Artikel.java
+ 
+                └── Schueler.java
+ 
+│       │   ├── repository
+ 
+                └── ArtikelRepository.java
+│       │   ├── service
+ 
+                └── ArtikelService.java
+ 
+            └── FundgrubeApplication.java
+│       ├── resources
+ 
+│       │   ├── static
+ 
+│       │   ├── templates
+ 
 │           └── application.properties
-
+ 
+│   ├── test\java\com\fundgrube
+ 
+│       ├── Integrationstest
+ 
+            └── ArtikelFindByBezeichnungIT.java
+ 
+            └── ArtikelFindByStandortIT.java
+ 
+            └── ArtikelRepositoryIT.java
+ 
+│       ├── Mocktest
+ 
+            └── ArtikelMockMvcTest.java
+ 
+│       ├── Smoketest
+ 
+            └── SmokeTest.java
+ 
+│       ├── Unittest
+ 
+            └── ArtikelControllerTest.java
+ 
+            └── unitTest.java
+ 
+        └── FundgrubeApplicationTest.java
+ 
+├── target
+ 
+│   ├── classes
+ 
+│   ├── generated-sources
+ 
+│   ├── generated-test-sources
+ 
+│   ├── maven-archiver
+ 
+│   ├── maven-status\maven-complier-plugin
+ 
+│       ├── compile
+ 
+│       ├── testCompile
+ 
+│   ├── surefire-reports
+ 
+│   ├── test-classes\com\fundgrube
+ 
+│       ├── Integrationstest
+ 
+│       ├── Unittest
+ 
+        ├── FundgrubeApplicationTest.class
+ 
 ├── pom.xml
-
+ 
 └── README.md
 
 
