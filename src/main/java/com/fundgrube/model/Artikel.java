@@ -5,8 +5,6 @@ import java.time.LocalDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.validation.constraints.NotBlank;
 
 /**
@@ -96,22 +94,16 @@ public class Artikel {
 
     /**
      * Noch nicht implementiert. Soll den Standort des Artikels liefern.
-     * Die Methode ist mit @JsonIgnore annotiert, damit sie bei der JSON-Serialisierung
-     * (z.B. bei API-Antworten) von Jackson ignoriert wird und keine Fehler verursacht.
      * @return wirft immer UnsupportedOperationException
      */
-    @JsonIgnore
     public Object getStandort() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     /**
      * Noch nicht implementiert. Soll die Schüler-ID liefern.
-     * Die Methode ist mit @JsonIgnore annotiert, damit sie bei der JSON-Serialisierung
-     * (z.B. bei API-Antworten) von Jackson ignoriert wird und keine Fehler verursacht.
      * @return wirft immer UnsupportedOperationException
      */
-    @JsonIgnore
     public Object getSchuelerId() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
